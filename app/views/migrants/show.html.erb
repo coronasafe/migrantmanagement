@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @migrant.name %>
+</p>
+
+<p>
+  <strong>Employer name:</strong>
+  <%= @migrant.employer_name %>
+</p>
+
+<p>
+  <strong>Local residence:</strong>
+  <%= @migrant.local_residence %>
+</p>
+
+<%= link_to 'Edit', edit_migrant_path(@migrant) %> |
+<%= link_to 'Back', migrants_path %>

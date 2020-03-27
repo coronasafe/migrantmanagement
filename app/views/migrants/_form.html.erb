@@ -1,0 +1,17 @@
+<section class="max-w-xl">
+    <%= simple_form_for @migrant, defaults: { input_html: {class: 'form-input mt-1 font-sans'}, wrapper_html: {class: 'flex flex-col my-4'}, label_html: {class: 'mb-1'}} do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+        <%= f.input :name %>
+        <%= f.input :employer_name %>
+        <%= f.input :local_residence %>
+    </div>
+
+    <div class="">
+        <%= f.button :submit, "Register",class: 'p-2 rounded-md bg-gray-900 text-white shadow-md'  %>
+    </div>
+    <% end %>
+
+</section>
