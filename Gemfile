@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Custom Gems
 gem 'simple_form'
+gem 'devise'
 
 
 group :development, :test do
