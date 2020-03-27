@@ -1,5 +1,6 @@
 class MigrantsController < ApplicationController
   before_action :set_migrant, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:new, :create]
 
   # GET /migrants
   # GET /migrants.json
