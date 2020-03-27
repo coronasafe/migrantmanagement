@@ -1,31 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Migrants</h1>
+<h1 class="text-xl font-bold">Migrants</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Employer name</th>
-      <th>Local residence</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<section class="pt-8">
+    <table class="text-left border border-gray-700 w-full border-collapse">
+        <thead class="border-b-2 border-gray-500">
+            <tr>
+                <th class="p-2">Name</th>
+                <th class="p-2">Employer name</th>
+                <th class="p-2">Local residence</th>
+            </tr>
+        </thead>
 
-  <tbody>
-    <% @migrants.each do |migrant| %>
-      <tr>
-        <td><%= migrant.name %></td>
-        <td><%= migrant.employer_name %></td>
-        <td><%= migrant.local_residence %></td>
-        <td><%= link_to 'Show', migrant %></td>
-        <td><%= link_to 'Edit', edit_migrant_path(migrant) %></td>
-        <td><%= link_to 'Destroy', migrant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+            <% @migrants.each do |migrant| %>
+            <tr class="border-t-2 border-gray-400">
+                <td class="px-2"><%= migrant.name %></td>
+                <td class="px-2"><%= migrant.employer_name %></td>
+                <td class="px-2"><%= migrant.local_residence %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
 
-<br>
+    <br>
+</section>
 
-<%= link_to 'New Migrant', new_migrant_path %>
+<div class="pt-4">
+    <%= link_to 'Register Migrant', new_migrant_path, class: 'bg-gray-900 text-white p-2 rounded shadow-md' %>
+</div>
