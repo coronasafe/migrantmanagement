@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_28_115132) do
+ActiveRecord::Schema.define(version: 2020_03_28_122708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 2020_03_28_115132) do
     t.bigint "state_id"
     t.bigint "district_id"
     t.bigint "panchayat_id"
+    t.boolean "has_beds"
+    t.boolean "has_mattresses"
+    t.boolean "has_toilet"
+    t.boolean "has_general_cleanliness"
+    t.integer "number_people_sharing_room"
+    t.boolean "has_cooking_facilities"
+    t.boolean "need_food"
+    t.boolean "need_water"
+    t.boolean "need_medicines"
+    t.boolean "need_doctor"
+    t.string "feedback_comment"
     t.index ["district_id"], name: "index_migrants_on_district_id"
     t.index ["panchayat_id"], name: "index_migrants_on_panchayat_id"
     t.index ["state_id"], name: "index_migrants_on_state_id"
