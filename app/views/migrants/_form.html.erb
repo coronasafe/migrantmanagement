@@ -9,11 +9,16 @@
         <%= f.input :employer_name %>
     </div>
 
-    <div class="pt-2">
+    <div class="pt-4">
+        <%= f.input :local_residence %>
+        <%= f.association :state, collection: State.all(), input_html: {class: 'form-select'} %>
+        <%= f.association :district, collection: State.all(), input_html: {class: 'form-select'} %>
+        <%= f.association :panchayat, collection: State.all(), input_html: {class: 'form-select'} %>
     </div>
 
     <div class="pt-2">
         <%= f.input :can_speak_local_language, input_html: {class: 'form-checkbox'} %>
+        <%= f.input :has_labour_department_reached, input_html: {class: 'form-checkbox'} %>
     </div>
 
     <div class="pt-4">
