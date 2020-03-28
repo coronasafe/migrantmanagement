@@ -7,6 +7,7 @@
         <%= f.input :name %>
         <%= f.input :aadhar_id %>
         <%= f.input :employer_name %>
+        <%= f.input :employer_phone %>
     </div>
 
     <div class="pt-4">
@@ -16,9 +17,26 @@
         <%= f.association :panchayat, collection: State.all(), input_html: {class: 'form-select'} %>
     </div>
 
+    <div class="pt-4">
+        <%= f.input :has_beds, input_html: {class: 'form-checkbox'} %>
+        <%= f.input :has_mattresses, input_html: {class: 'form-checkbox'} %>
+        <%= f.input :has_toilet, input_html: {class: 'form-checkbox'} %>
+        <%= f.input :has_general_cleanliness, input_html: {class: 'form-checkbox'} %>
+        <%= f.input :has_cooking_facilities, input_html: {class: 'form-checkbox'} %>
+        <%= f.input :number_people_sharing_room %>
+    </div>
+
+    <div class="pt-4">
+        <%= f.input :need_food, input_html: {class: 'form-checkbox'} %>
+        <%= f.input :need_water, input_html: {class: 'form-checkbox'} %>
+        <%= f.input :need_medicines, input_html: {class: 'form-checkbox'} %>
+        <%= f.input :need_doctor, input_html: {class: 'form-checkbox'} %>
+    </div>
+
     <div class="pt-2">
         <%= f.input :can_speak_local_language, input_html: {class: 'form-checkbox'} %>
         <%= f.input :has_labour_department_reached, input_html: {class: 'form-checkbox'} %>
+        <%= f.input :feedback_comment %>
     </div>
 
     <div class="pt-4">
