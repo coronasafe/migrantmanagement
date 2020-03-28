@@ -70,6 +70,6 @@ class MigrantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def migrant_params
-      params.require(:migrant).permit(:name, :employer_name, :local_residence, :employer_phone, :local_address, :ward, :panchayath, :has_toilet, :no_house_mates, :cooking, :has_labour_department_reached, :can_speak_local_language, :aadhar_id)
+      params.require(:migrant).permit(:name, :aadhar_id, :employer_name, :employer_phone,:local_residence, :state_id, :district_id, :panchayat_id, :can_speak_local_language, :has_labour_department_reached, :has_beds, :has_mattresses, :has_toilet, :has_general_cleanliness, :number_people_sharing_room, :has_cooking_facilities, :need_food, :need_water, :need_medicines, :need_doctor, :feedback_comment)
     end
 end

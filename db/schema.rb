@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_111125) do
+ActiveRecord::Schema.define(version: 2020_03_28_122708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "districts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "migrants", force: :cascade do |t|
     t.string "name"
@@ -22,15 +28,38 @@ ActiveRecord::Schema.define(version: 2020_03_27_111125) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "employer_phone"
-    t.text "local_address"
-    t.integer "ward"
-    t.string "panchayath"
-    t.boolean "has_toilet"
-    t.integer "no_house_mates"
-    t.string "cooking"
     t.boolean "has_labour_department_reached"
     t.boolean "can_speak_local_language"
     t.string "aadhar_id"
+    t.bigint "state_id"
+    t.bigint "district_id"
+    t.bigint "panchayat_id"
+    t.boolean "has_beds"
+    t.boolean "has_mattresses"
+    t.boolean "has_toilet"
+    t.boolean "has_general_cleanliness"
+    t.integer "number_people_sharing_room"
+    t.boolean "has_cooking_facilities"
+    t.boolean "need_food"
+    t.boolean "need_water"
+    t.boolean "need_medicines"
+    t.boolean "need_doctor"
+    t.string "feedback_comment"
+    t.index ["district_id"], name: "index_migrants_on_district_id"
+    t.index ["panchayat_id"], name: "index_migrants_on_panchayat_id"
+    t.index ["state_id"], name: "index_migrants_on_state_id"
+  end
+
+  create_table "panchayats", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,4 +74,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_111125) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "migrants", "districts"
+  add_foreign_key "migrants", "panchayats"
+  add_foreign_key "migrants", "states"
 end
